@@ -4,13 +4,20 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "build": "react-scripts build",
-    "lint": "eslint src/**/*.js",
     "node-sass": "^4.12.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-scripts": "^3.1.2",
-    "start": "react-scripts start"
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "prop-types": "^15.7.2",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.1",
+    "react-styleguidist": "^9.1.16",
+    "react-test-renderer": "^16.10.1",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^14.0.0",
@@ -18,7 +25,12 @@
     "eslint-plugin-react": "^7.14.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js",
+    "docs": "styleguidist server"
   },
   "repository": {
     "type": "git",
