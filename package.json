@@ -1,0 +1,46 @@
+{
+  "name": "travel-buddy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.12.0",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "react-scripts": "^3.1.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "prop-types": "^15.7.2",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.1",
+    "react-styleguidist": "^9.1.16",
+    "react-test-renderer": "^16.10.1",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-react": "^7.14.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js",
+    "docs": "styleguidist server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/401-advanced-javascript-leyla/travel-buddy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/401-advanced-javascript-leyla/travel-buddy/issues"
+  },
+  "homepage": "https://github.com/401-advanced-javascript-leyla/travel-buddy#readme"
+}
