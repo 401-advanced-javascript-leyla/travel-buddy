@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "node-sass": "^4.12.0",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
-    "react-scripts": "^3.1.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "jsonwebtoken": "^8.5.1",
+    "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
+    "react": "^16.10.1",
+    "react-cookies": "^0.1.1",
+    "react-dom": "^16.10.1",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.1",
+    "react-scripts": "^3.1.2",
     "react-styleguidist": "^9.1.16",
     "react-test-renderer": "^16.10.1",
     "redux": "^4.0.4",
@@ -42,5 +44,17 @@
   "bugs": {
     "url": "https://github.com/401-advanced-javascript-leyla/travel-buddy/issues"
   },
-  "homepage": "https://github.com/401-advanced-javascript-leyla/travel-buddy#readme"
+  "homepage": "https://github.com/401-advanced-javascript-leyla/travel-buddy#readme",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
