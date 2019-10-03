@@ -21,7 +21,6 @@ const deleteTodo = (payload) => {
   }
 };
 
-//thunk for async fetch
 const fetchTodos = () => (dispatch) => {
   return fetch(`${API}/api/v1/todo`)
     .then((results) => results.json())
