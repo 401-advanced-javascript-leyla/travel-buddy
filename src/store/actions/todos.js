@@ -14,14 +14,20 @@ const addTodo = (payload) => {
   };
 };
 
+const updateTodo = (payload) => {
+  return {
+    type: 'UPDATE_TODOS',
+    payload,
+  };
+};
+
 const deleteTodo = (payload) => {
   return {
     type: 'DELETE_TODOS',
     payload,
-  }
+  };
 };
 
-//thunk for async fetch
 const fetchTodos = () => (dispatch) => {
   return fetch(`${API}/api/v1/todo`)
     .then((results) => results.json())
@@ -43,23 +49,37 @@ const addTodos = (todo) => (dispatch) => {
     .then((data) => dispatch(addTodo(data)));
 };
 
+const updateTodos = (id, todo) => (dispatch) => {
+  console.log('this is the id', id, todo);
+  const options = {
+    method: 'PUT',
+    body: JSON.stringify(todo),
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  };
+  return fetch(`${API}/api/v1/todo/${id}`, options)
+    .then((results) => results.json())
+    .then((data) => dispatch(updateTodo(id, data)));
+};
+
 const deleteTodos = (id) => (dispatch) => {
   const options = {
     method: 'DELETE',
-    body: JSON.stringify(id),
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
   };
 
-  return fetch(`${API}/api/v1/todo`, options)
-    .then((results) => results.json())
-    .then((delteId) => dispatch(deleteTodo(delteId)));
+  return fetch(`${API}/api/v1/todo/${id}`, options)
+    .then(() => dispatch(deleteTodo(id)));
 };
 
 export default {
   fetchTodos,
   addTodos,
+  updateTodos,
   deleteTodos,
 };

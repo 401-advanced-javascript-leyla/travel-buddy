@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { LoginContext } from './context';
 
 import If from '../if';
@@ -28,6 +29,7 @@ class Login extends React.Component {
       <>
         <If condition={this.context.loggedIn}>
           <button onClick={this.context.logout}>Log Out</button>
+          {this.props.children}
         </If>
 
         <If condition={!this.context.loggedIn}>
@@ -51,5 +53,10 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  logins: PropTypes.object,
+  children: PropTypes.node,
+};
 
 export default Login;
