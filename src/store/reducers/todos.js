@@ -5,14 +5,11 @@ export default (state = [], action) => {
     case 'ADD_TODOS':
       return [...state, action.payload];
     case 'UPDATE_TODOS': {
-      const newState = state.map((todo) => {
-        if (todo._id === action.payload.id) {
-          // console.log();
-          todo.plan = action.payload.todo;
-        }
-        return todo;
+      const newState = state.filter((todo) => {
+        return action.payload.id !== todo.id;
       });
-      return newState;
+      const final = [...newState, action.payload];
+      return final;
     }
     case 'DELETE_TODOS': {
       const newState = state.filter((todo) => (action.payload) !== todo._id);
