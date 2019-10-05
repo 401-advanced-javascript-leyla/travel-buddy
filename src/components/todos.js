@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid';
 
 import todoActions from '../store/actions/todos';
+import Day from './dayForm';
 
 const Todos = (props) => {
   const [todoDay, setTodoDay] = useState('');
@@ -12,7 +13,8 @@ const Todos = (props) => {
   const [todoDayTem, setTodoDayTem] = useState('');
   const [todoPlanTem, setTodoPlanTem] = useState('');
 
-  function handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault();
     props.addTodos({ id: uuid(), day: todoDayTem, plan: todoPlanTem });
   }
 
@@ -25,20 +27,12 @@ const Todos = (props) => {
   function handleDelete(e) {
     return props.deleteTodos(e.target.value);
   }
-  function handleDayEdit(e) {
-    return setTodoDay(e.target.value);
-  }
-  function handlePlanEdit(e) {
-    return setTodoPlan(e.target.value);
-  }
-  function handleDaySubmit(e) {
-    e.preventDefault();
-    props.updateTodos(e.target.value, { day: todoDay });
-  }
 
-  function handlePlanSubmit(e) {
+  function handleTodoSubmit(e, id, day, plan) {
     e.preventDefault();
-    props.updateTodos(e.target.value, { plan: todoPlan });
+    props.updateTodos(id, day, plan);
+    setTodoDay(day);
+    setTodoPlan(plan);
   }
 
 
@@ -49,15 +43,9 @@ const Todos = (props) => {
   return (
     <>
       <ul>
-        {props.todos.map((todo) => (
-          <form key={todo._id}>
-            <p>{todo.day}:</p>
-            <input type='text' value={todoDay} onChange={handleDayEdit} />
-            <button value={todo._id} onClick={handleDaySubmit}>Edit Day</button>
-            
-            <p>{todo.plan}</p>
-            <input type='text' value={todoPlan} onChange={handlePlanEdit} />
-            <button value={todo._id} onClick={handlePlanSubmit}>Edit Plan</button>
+        {props.todos.map((todo, i) => (
+          <form key={i}>
+            <Day todo={todo} editDay={todoDay} handleTodoSubmit={handleTodoSubmit} />
             <br />
             <br />
             <button value={todo._id} onClick={handleDelete}>Delete Plan</button>
@@ -90,7 +78,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToPros = (dispatch) => ({
   fetchTodos: () => dispatch(todoActions.fetchTodos()),
   addTodos: (data) => dispatch(todoActions.addTodos(data)),
-  updateTodos: (id, data) => dispatch(todoActions.updateTodos(id, data)),
+  updateTodos: (id, day, plan) => dispatch(todoActions.updateTodos(id, day, plan)),
   deleteTodos: (id) => dispatch(todoActions.deleteTodos(id)),
 });
 

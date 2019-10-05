@@ -15,6 +15,7 @@ const addTodo = (payload) => {
 };
 
 const updateTodo = (payload) => {
+  console.log(payload);
   return {
     type: 'UPDATE_TODOS',
     payload,
@@ -45,23 +46,28 @@ const addTodos = (todo) => (dispatch) => {
   };
 
   return fetch(`${API}/api/v1/todo`, options)
-    .then((results) => results.json())
-    .then((data) => dispatch(addTodo(data)));
+    .then(() => dispatch(addTodo(todo)));
 };
 
-const updateTodos = (id, todo) => (dispatch) => {
-  console.log('this is the id', id, todo);
+const updateTodos = (id, day, plan) => (dispatch) => {
+  const payload = {
+    id,
+    day,
+    plan,
+  };
+
   const options = {
     method: 'PUT',
-    body: JSON.stringify(todo),
+    body: JSON.stringify(payload),
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
   };
   return fetch(`${API}/api/v1/todo/${id}`, options)
-    .then((results) => results.json())
-    .then((data) => dispatch(updateTodo(id, data)));
+    .then(() => {
+      dispatch(updateTodo(payload));
+    });
 };
 
 const deleteTodos = (id) => (dispatch) => {
