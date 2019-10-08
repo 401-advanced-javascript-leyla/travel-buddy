@@ -1,4 +1,4 @@
-# LAB - 34
+# travel-buddy
 
 ## React redux
 
@@ -6,21 +6,15 @@
 
 
 ### Links and Resources
-* [submission PR](https://github.com/401-advanced-javascript-leyla/lab-34-redux/pulls)
-* [heroku](https://lab-34-leyla.herokuapp.com/)
+* [submission PR](https://github.com/401-advanced-javascript-leyla/travel-buddy)
+* [heroku](https://travel-buddy-leyla.herokuapp.com/)
 
 
-### Modules
-#### `App`
-The App component has state of category, methods of handleChange, handleSubmit and then render a list of the category and a form to create a new catogery.
-#### `create-store`
-The create-store component create a new store to storage all the data (food)
-#### `FoodReducer`
-The FoodReducer component use CRUD methods to modify the data in the store (food)
-#### `main-reducer`
-The main-reducer component combines all the reducers
-
-
+### Components
+#### `login`
+The Login component is checking users information
+#### `dayForm`
+The deyForm component creates the form to delete/update the data
 
 ### Setup
 
@@ -49,5 +43,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 `npm docs`
 
 ### UML
-![UML](./lab-34-UML.jpg)
+![UML](./travel-buddy-uml.jpg)
 
